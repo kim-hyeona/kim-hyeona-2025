@@ -1,70 +1,76 @@
 import Image from "next/image";
 
-const SKILLS = [
-  { name: "JavaScript", src: "/images/skill-icon-js.png" },
-  { name: "TypeScript", src: "/images/skill-icon-ts.png" },
-  { name: "React", src: "/images/skill-icon-react.png" },
-  { name: "Vue", src: "/images/skill-icon-vue.png" },
-  { name: "HTML5", src: "/images/skill-icon-html.png" },
-  { name: "CSS3", src: "/images/skill-icon-css.png" },
-  { name: "Sass", src: "/images/skill-icon-scss.png" },
-  { name: "Tailwind CSS", src: "/images/skill-icon-tailwind.png" },
-  { name: "Git", src: "/images/skill-icon-git.png" },
-  { name: "GitHub", src: "/images/skill-icon-github.png" },
+const ICONS = [
+  { src: "/images/skill-icon-html.png", alt: "HTML5" },
+  { src: "/images/skill-icon-css.png", alt: "CSS3" },
+  { src: "/images/skill-icon-sass.png", alt: "Sass" },
+  { src: "/images/skill-icon-tailwind.png", alt: "Tailwind CSS" },
+  { src: "/images/skill-icon-js.png", alt: "JavaScript" },
+  { src: "/images/skill-icon-ts.png", alt: "TypeScript" },
+  { src: "/images/skill-icon-react.png", alt: "React" },
+  { src: "/images/skill-icon-unknown1.png", alt: "기술 아이콘(미확인)" },
+  { src: "/images/skill-icon-unknown2.png", alt: "기술 아이콘(미확인)" },
+  { src: "/images/skill-icon-nextjs.png", alt: "Next.js" },
 ];
 
 export default function SkillDetail() {
   return (
-    <section id="skill" className="mx-auto w-full max-w-5xl px-6 py-16 sm:px-10 sm:py-20">
-      <h2 className="mb-8 flex items-center gap-3 text-3xl font-bold">
-        skill
-        <Image
-          src="/images/icon-coffee.png"
-          alt=""
-          width={200}
-          height={200}
-          className="h-9 w-9"
-          aria-hidden
-        />
-      </h2>
-
-      <div className="relative flex flex-col items-center">
+    <section id="skill" className="mx-auto w-full max-w-5xl px-6 py-8 sm:px-10 sm:py-10">
+      <div className="mx-auto flex w-full max-w-2xl flex-col items-center">
         {/* 모니터 프레임 */}
-        <div className="sketch-box w-full max-w-2xl overflow-hidden shadow-[4px_4px_0_0_#111]">
-          {/* 브라우저 탭 + 주소창 */}
-          <div className="border-b-2 border-ink bg-[#f4efd8]">
-            <div className="flex items-end px-4 pt-3">
-              <div className="h-6 w-16 rounded-t-lg border-2 border-b-0 border-ink bg-[#f4efd8]" />
-              <div className="-ml-1 h-6 w-16 rounded-t-lg border-2 border-b-0 border-ink bg-[#f4efd8]" />
+        <div className="sketch-box w-full overflow-hidden shadow-[4px_4px_0_0_#111]">
+          {/* 타이틀 바 */}
+          <div className="flex items-center justify-between border-b-2 border-ink px-4 py-2.5">
+            <span className="text-lg font-bold">skill</span>
+            <span className="sketch-box flex h-6 w-6 items-center justify-center text-xs">
+              ♡
+            </span>
+          </div>
+
+          <div className="bg-white p-4 sm:p-6">
+            {/* 기술 아이콘 한 줄 배치 */}
+            <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
+              {ICONS.map((icon) => (
+                <div key={icon.alt + icon.src} className="h-9 w-9 sm:h-11 sm:w-11">
+                  <Image
+                    src={icon.src}
+                    alt={icon.alt}
+                    width={64}
+                    height={64}
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+              ))}
             </div>
-            <div className="flex items-center border-t-2 border-ink bg-[#e9e2c7] px-4 py-2">
-              <span className="rounded-full border-2 border-ink bg-white px-4 py-1 text-xs text-gray-600 sm:text-sm">
+
+            {/* 브라우저 탭 */}
+            <div className="flex items-end gap-1">
+              <div className="flex items-center gap-1.5 rounded-t-lg border-2 border-b-0 border-ink bg-white px-3 py-1.5">
+                <Image
+                  src="/images/skill-icon-ts.png"
+                  alt="TypeScript"
+                  width={38}
+                  height={38}
+                  className="h-4 w-4"
+                />
+                <span className="text-xs font-medium">TypeScript</span>
+              </div>
+              <div className="h-7 w-16 rounded-t-lg border-2 border-b-0 border-ink bg-[#f4efd8]" />
+            </div>
+
+            {/* 주소창 */}
+            <div className="border-2 border-ink bg-[#e9e2c7] px-3 py-2">
+              <span className="inline-block rounded-full border-2 border-ink bg-white px-4 py-1 text-xs text-gray-600 sm:text-sm">
                 https://www.kha.com
               </span>
             </div>
-          </div>
 
-          {/* 아이콘 그리드 */}
-          <div className="grid grid-cols-3 gap-4 bg-white p-6 sm:grid-cols-5 sm:gap-5 sm:p-8">
-            {SKILLS.map((s) => (
-              <div
-                key={s.name}
-                className="flex flex-col items-center gap-2 text-center"
-              >
-                <div className="sketch-box flex h-14 w-14 items-center justify-center p-2 shadow-[2px_2px_0_0_#111] sm:h-16 sm:w-16">
-                  <Image
-                    src={s.src}
-                    alt={s.name}
-                    width={64}
-                    height={64}
-                    className="h-auto w-full object-contain"
-                  />
-                </div>
-                <span className="text-[11px] font-medium text-gray-700 sm:text-xs">
-                  {s.name}
-                </span>
-              </div>
-            ))}
+            {/* 콘텐츠 영역 */}
+            <div className="min-h-[110px] border-2 border-t-0 border-ink px-4 py-4 sm:min-h-[140px]">
+              <p className="text-sm leading-relaxed sm:text-[15px]">
+                타입스크립트를 사용하는 이유를 이해하고 타입을 적절하게 지정하며 개발할 수 있어요.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -73,7 +79,7 @@ export default function SkillDetail() {
         <div className="-mt-[2px] h-3 w-64 rounded-full border-2 border-ink bg-[#f4efd8] sm:h-4 sm:w-80" />
 
         {/* 픽셀 캐릭터 */}
-        <div className="pointer-events-none absolute -bottom-4 left-0 w-28 sm:-left-4 sm:w-36">
+        <div className="relative -mt-6 w-28 self-start sm:-ml-2 sm:w-36">
           <Image
             src="/images/piskel-tired.png"
             alt="헤드폰을 쓰고 지친 표정의 픽셀 캐릭터"
@@ -83,11 +89,6 @@ export default function SkillDetail() {
           />
         </div>
       </div>
-
-      <p className="sr-only">
-        Language: JavaScript, TypeScript / Framework·Library: React, Vue /
-        MarkUp: HTML, CSS, SCSS, tailwindCSS / Tool: git, github
-      </p>
     </section>
   );
 }
