@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const STACK = [
   { label: "Language", value: "JavaScript, TypeScript" },
   { label: "Framework / Library", value: "React, Vue" },
@@ -20,10 +22,10 @@ const CAREER = [
 
 export default function TechStack() {
   return (
-    <section id="skill" className="px-4 pb-20 sm:px-10">
-      <div className="mx-auto grid max-w-5xl gap-6 sm:grid-cols-2">
-        <div className="sketch-box px-6 py-5 shadow-[3px_3px_0_0_#111]">
-          <h2 className="mb-4 text-lg font-bold">기술스택</h2>
+    <section id="work" className="mx-auto w-full max-w-5xl px-6 py-16 sm:px-10 sm:py-20">
+      <div className="grid gap-8 sm:grid-cols-2">
+        <div className="sketch-box px-6 py-6 shadow-[3px_3px_0_0_#111] sm:px-7 sm:py-7">
+          <h2 className="mb-5 text-lg font-bold">기술스택</h2>
           <dl className="space-y-3 text-sm sm:text-[15px]">
             {STACK.map((row) => (
               <div key={row.label} className="flex flex-col gap-0.5">
@@ -34,9 +36,17 @@ export default function TechStack() {
           </dl>
         </div>
 
-        <div id="work" className="sketch-box px-6 py-5 shadow-[3px_3px_0_0_#111]">
-          <h2 className="mb-4 flex items-center gap-2 text-lg font-bold">
-            경력 <span aria-hidden>☕</span>
+        <div className="sketch-box px-6 py-6 shadow-[3px_3px_0_0_#111] sm:px-7 sm:py-7">
+          <h2 className="mb-5 flex items-center gap-3 text-lg font-bold">
+            경력
+            <Image
+              src="/images/union.png"
+              alt=""
+              width={363}
+              height={280}
+              className="h-5 w-auto"
+              aria-hidden
+            />
           </h2>
           <ul className="space-y-4 text-sm sm:text-[15px]">
             {CAREER.map((job) => (

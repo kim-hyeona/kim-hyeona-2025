@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
-    <footer className="border-t-2 border-ink bg-white/60 px-4 py-8 text-center text-sm sm:px-10">
-      <div className="mx-auto flex max-w-5xl flex-col items-center gap-3">
+    <footer className="border-t-2 border-ink bg-white/60">
+      <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-3 px-6 py-10 text-center text-sm sm:px-10">
         <a
           href="https://github.com"
           target="_blank"
