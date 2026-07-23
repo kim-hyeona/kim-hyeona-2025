@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+:root {
+  --sky: #b9e3ff;
+  --sky-deep: #8fd0ff;
+  --ink: #111111;
+  --cream: #f4efd8;
+}
+
+@theme inline {
+  --color-sky: var(--sky);
+  --color-ink: var(--ink);
+  --color-cream: var(--cream);
+}
+
+* {
+  border-color: var(--ink);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--sky);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+    "Pretendard", "Malgun Gothic", "Segoe UI", sans-serif;
+}
+
+.sketch-box {
+  background: #ffffff;
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+}
+
+.sketch-btn {
+  background: #ffffff;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  padding: 0.25rem 0.9rem;
+  font-weight: 600;
+}
+
+.sketch-btn:hover {
+  background: var(--ink);
+  color: #ffffff;
+}
