@@ -7,6 +7,7 @@ const PROJECTS = [
     labelSize: { w: 162, h: 33 },
     desc: "웹디자이너와 피그마를 통해 협업할 수 있어요!",
     bg: "/images/group19.png",
+    pos: "sm:left-[26%] sm:top-0 sm:z-20",
   },
   {
     title: "리팩토링",
@@ -18,6 +19,7 @@ const PROJECTS = [
     cardClass: "bg-pink-100",
     thumb: "/images/group24.png",
     thumbSize: { w: 296, h: 247 },
+    pos: "sm:left-0 sm:top-[8%] sm:z-10",
   },
   {
     title: "링고챗",
@@ -25,12 +27,16 @@ const PROJECTS = [
     labelSize: { w: 207, h: 33 },
     desc: "API를 이용해 데이터를 가져오고 화면단을 개발할 수 있어요. 타 계열 개발자들과 협업할 수 있어요!",
     cardClass: "bg-[#8d7f78] text-white",
+    pos: "sm:left-[58%] sm:top-[46%] sm:z-30",
   },
 ];
 
 export default function Projects() {
   return (
-    <section id="project" className="mx-auto w-full max-w-5xl px-6 py-16 sm:px-10 sm:py-20">
+    <section
+      id="project"
+      className="mx-auto w-full max-w-5xl px-6 py-16 sm:px-10 sm:py-24"
+    >
       <h2 className="mb-10 flex items-center gap-3 text-3xl font-bold">
         project <span aria-hidden className="text-xl">✦</span>
         <Image
@@ -43,13 +49,14 @@ export default function Projects() {
         />
       </h2>
 
-      <div className="grid gap-8 sm:grid-cols-3">
+      {/* 모바일: 세로 스택 / 데스크탑: 원본처럼 겹치는 콜라주 배치 */}
+      <div className="flex flex-col gap-8 sm:relative sm:block sm:h-[560px] sm:gap-0">
         {PROJECTS.map((p) => (
           <div
             key={p.title}
-            className="sketch-box flex flex-col overflow-hidden shadow-[3px_3px_0_0_#111]"
+            className={`sketch-box flex w-full flex-col overflow-hidden shadow-[4px_4px_0_0_#111] sm:absolute sm:w-72 ${p.pos}`}
           >
-            <div className="flex items-center justify-between gap-2 border-b-2 border-ink px-4 py-3">
+            <div className="flex items-center justify-between gap-2 border-b-2 border-ink bg-white px-4 py-3">
               <div className="flex items-center gap-2">
                 <Image
                   src={p.labelImg}
@@ -117,7 +124,7 @@ export default function Projects() {
               </div>
             </div>
 
-            <p className="flex-1 px-4 py-4 text-[13px] leading-relaxed">
+            <p className="flex-1 bg-white px-4 py-4 text-[13px] leading-relaxed">
               {p.desc}
             </p>
           </div>
