@@ -1,12 +1,5 @@
 import Image from "next/image";
 
-const STACK = [
-  { label: "Language", value: "JavaScript, TypeScript" },
-  { label: "Framework / Library", value: "React, Vue" },
-  { label: "MarkUp", value: "HTML, CSS, SCSS, tailwindCSS" },
-  { label: "Tool", value: "git, github, figma" },
-];
-
 const CAREER = [
   {
     company: "MEVER",
@@ -23,42 +16,37 @@ const CAREER = [
 export default function TechStack() {
   return (
     <section id="work" className="mx-auto w-full max-w-5xl px-6 py-16 sm:px-10 sm:py-20">
-      <div className="grid gap-8 sm:grid-cols-2">
-        <div className="sketch-box px-6 py-6 shadow-[3px_3px_0_0_#111] sm:px-7 sm:py-7">
-          <h2 className="mb-5 text-lg font-bold">기술스택</h2>
-          <dl className="space-y-3 text-sm sm:text-[15px]">
-            {STACK.map((row) => (
-              <div key={row.label} className="flex flex-col gap-0.5">
-                <dt className="font-semibold">{row.label}</dt>
-                <dd className="text-gray-700">{row.value}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
+      <h2 className="mb-8 flex items-center gap-3 text-3xl font-bold">
+        work
+        <Image
+          src="/images/icon-coffee.png"
+          alt=""
+          width={200}
+          height={200}
+          className="h-10 w-10"
+          aria-hidden
+        />
+        <Image
+          src="/images/union.png"
+          alt=""
+          width={363}
+          height={280}
+          className="ml-auto hidden h-10 w-auto sm:block"
+          aria-hidden
+        />
+      </h2>
 
-        <div className="sketch-box px-6 py-6 shadow-[3px_3px_0_0_#111] sm:px-7 sm:py-7">
-          <h2 className="mb-5 flex items-center gap-3 text-lg font-bold">
-            경력
-            <Image
-              src="/images/union.png"
-              alt=""
-              width={363}
-              height={280}
-              className="h-5 w-auto"
-              aria-hidden
-            />
-          </h2>
-          <ul className="space-y-4 text-sm sm:text-[15px]">
-            {CAREER.map((job) => (
-              <li key={job.company}>
-                <p className="font-semibold">
-                  {job.company} | {job.role}
-                </p>
-                <p className="text-gray-600">{job.period}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
+      <div className="sketch-box max-w-2xl px-6 py-6 shadow-[3px_3px_0_0_#111] sm:px-8 sm:py-7">
+        <ul className="space-y-4 text-sm sm:text-[15px]">
+          {CAREER.map((job) => (
+            <li key={job.company}>
+              <p className="font-semibold">
+                {job.company} | {job.role}
+              </p>
+              <p className="text-gray-600">{job.period}</p>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

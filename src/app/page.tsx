@@ -10,9 +10,9 @@ export default function Home() {
     <main className="relative flex-1">
       <QuickNav />
       <Hero />
-      <TechStack />
       <Projects />
       <SkillDetail />
+      <TechStack />
       <Footer />
     </main>
   );

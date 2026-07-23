@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="mx-auto w-full max-w-5xl px-6 pb-20 pt-24 sm:px-10 sm:pb-28 sm:pt-32">
-      <div className="grid items-center gap-10 sm:grid-cols-[1.1fr_0.9fr] sm:gap-8">
+    <section className="mx-auto w-full max-w-5xl px-6 pb-16 pt-24 sm:px-10 sm:pb-20 sm:pt-32">
+      <div className="grid items-start gap-10 sm:grid-cols-[1.2fr_0.8fr]">
         {/* 텍스트 말풍선 */}
         <div className="flex flex-col gap-4">
           <div className="sketch-box px-6 py-4 shadow-[3px_3px_0_0_#111] sm:px-7 sm:py-5">
@@ -25,22 +25,15 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* 일러스트 */}
-        <div className="relative mx-auto w-full max-w-[340px] sm:max-w-none">
-          <Image
-            src="/images/group19.png"
-            alt="책상에 앉아 작업하는 사람 일러스트"
-            width={773}
-            height={566}
-            className="h-auto w-full select-none"
-            priority
-          />
+        {/* 픽셀 캐릭터 (배경 없이, 원본처럼 그냥 얹혀있는 형태) */}
+        <div className="mx-auto w-40 pt-2 sm:mx-0 sm:w-48">
           <Image
             src="/images/piskel.png"
             alt="헤드폰을 쓴 픽셀 캐릭터"
             width={367}
             height={440}
-            className="absolute -bottom-8 -left-6 h-auto w-24 select-none sm:w-32"
+            className="h-auto w-full select-none"
+            priority
           />
         </div>
       </div>

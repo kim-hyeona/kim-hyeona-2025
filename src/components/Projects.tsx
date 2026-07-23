@@ -6,7 +6,7 @@ const PROJECTS = [
     labelImg: "/images/proj-tarot.png",
     labelSize: { w: 162, h: 33 },
     desc: "웹디자이너와 피그마를 통해 협업할 수 있어요!",
-    cardClass: "bg-gradient-to-b from-pink-100 via-pink-300 to-fuchsia-500",
+    bg: "/images/group19.png",
   },
   {
     title: "리팩토링",
@@ -31,8 +31,16 @@ const PROJECTS = [
 export default function Projects() {
   return (
     <section id="project" className="mx-auto w-full max-w-5xl px-6 py-16 sm:px-10 sm:py-20">
-      <h2 className="mb-10 flex items-center gap-2 text-3xl font-bold">
+      <h2 className="mb-10 flex items-center gap-3 text-3xl font-bold">
         project <span aria-hidden className="text-xl">✦</span>
+        <Image
+          src="/images/icon-headphone.png"
+          alt=""
+          width={300}
+          height={300}
+          className="ml-2 h-10 w-10 -rotate-12"
+          aria-hidden
+        />
       </h2>
 
       <div className="grid gap-8 sm:grid-cols-3">
@@ -65,42 +73,48 @@ export default function Projects() {
             </div>
 
             <div
-              className={`flex h-44 items-center justify-center ${p.cardClass}`}
+              className={`relative flex h-44 items-center justify-center ${p.cardClass ?? ""}`}
             >
-              {p.thumb ? (
+              {p.bg && (
                 <Image
-                  src={p.thumb}
-                  alt={`${p.title} 썸네일`}
-                  width={p.thumbSize!.w}
-                  height={p.thumbSize!.h}
-                  className="h-32 w-auto object-contain"
+                  src={p.bg}
+                  alt=""
+                  fill
+                  className="object-cover"
+                  aria-hidden
                 />
-              ) : p.title === "링고챗" ? (
-                <div className="flex items-center gap-3">
-                  <Image
-                    src="/images/icon-map.png"
-                    alt=""
-                    width={400}
-                    height={400}
-                    className="h-16 w-16 rounded-lg border-2 border-white/60 object-cover"
-                    aria-hidden
-                  />
-                  <Image
-                    src="/images/icon-toilet.png"
-                    alt=""
-                    width={200}
-                    height={200}
-                    className="h-12 w-12"
-                    aria-hidden
-                  />
-                </div>
-              ) : (
-                <div className="flex gap-2">
-                  <div className="h-24 w-14 -rotate-12 rounded-md border-2 border-black bg-indigo-400" />
-                  <div className="h-28 w-16 rounded-md border-2 border-black bg-indigo-500" />
-                  <div className="h-24 w-14 rotate-12 rounded-md border-2 border-black bg-indigo-400" />
-                </div>
               )}
+
+              <div className="relative">
+                {p.thumb ? (
+                  <Image
+                    src={p.thumb}
+                    alt={`${p.title} 썸네일`}
+                    width={p.thumbSize!.w}
+                    height={p.thumbSize!.h}
+                    className="h-32 w-auto object-contain"
+                  />
+                ) : p.title === "링고챗" ? (
+                  <div className="flex items-center gap-3">
+                    <Image
+                      src="/images/icon-map.png"
+                      alt=""
+                      width={400}
+                      height={400}
+                      className="h-16 w-16 rounded-lg border-2 border-white/60 object-cover"
+                      aria-hidden
+                    />
+                    <Image
+                      src="/images/icon-toilet.png"
+                      alt=""
+                      width={200}
+                      height={200}
+                      className="h-12 w-12"
+                      aria-hidden
+                    />
+                  </div>
+                ) : null}
+              </div>
             </div>
 
             <p className="flex-1 px-4 py-4 text-[13px] leading-relaxed">
