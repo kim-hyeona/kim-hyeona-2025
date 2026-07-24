@@ -1,20 +1,17 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --sky: #b9e3ff;
-  --sky-deep: #8fd0ff;
-  --ink: #111111;
-  --cream: #f4efd8;
-}
-
-@theme inline {
-  --color-sky: var(--sky);
-  --color-ink: var(--ink);
-  --color-cream: var(--cream);
+  --bg-sky-top: #d3edfc;
+  --bg-sky-bottom: #a9dcf7;
+  --ink: #1c2430;
+  --window-border: #1c2430;
+  --pink-accent: #ff8fc7;
 }
 
 * {
-  border-color: var(--ink);
+  box-sizing: border-box;
 }
 
 html {
@@ -22,28 +19,51 @@ html {
 }
 
 body {
-  background: var(--sky);
   color: var(--ink);
-  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
-    "Pretendard", "Malgun Gothic", "Segoe UI", sans-serif;
+  background: linear-gradient(180deg, var(--bg-sky-top) 0%, var(--bg-sky-bottom) 55%, #cdeafb 100%);
+  font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  min-height: 100vh;
 }
 
-.sketch-box {
+.font-display {
+  font-family: "Poppins", "Noto Sans KR", sans-serif;
+}
+
+/* pixel-style window chrome, hard offset shadow, no border radius */
+.pixel-window {
   background: #ffffff;
-  border: 2px solid var(--ink);
-  border-radius: 10px;
+  border: 2px solid var(--window-border);
+  box-shadow: 5px 5px 0 rgba(28, 36, 48, 0.85);
+  image-rendering: pixelated;
 }
 
-.sketch-btn {
-  background: #ffffff;
-  border: 2px solid var(--ink);
-  border-radius: 999px;
-  font-size: 0.8rem;
-  padding: 0.25rem 0.9rem;
-  font-weight: 600;
+.pixel-window-titlebar {
+  border-bottom: 2px solid var(--window-border);
+  background: #fbfbfe;
 }
 
-.sketch-btn:hover {
-  background: var(--ink);
-  color: #ffffff;
+.pixel-shadow-sm {
+  box-shadow: 3px 3px 0 rgba(28, 36, 48, 0.85);
+}
+
+.pixel-shadow-lg {
+  box-shadow: 8px 8px 0 rgba(28, 36, 48, 0.85);
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-anim {
+  animation: float-y 4s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.4; transform: scale(0.9) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.15) rotate(15deg); }
+}
+
+.twinkle {
+  animation: twinkle 2.4s ease-in-out infinite;
 }
