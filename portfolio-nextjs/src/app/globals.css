@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-sky-top: #d3edfc;
+  --bg-sky-bottom: #a9dcf7;
+  --ink: #1c2430;
+  --window-border: #1c2430;
+  --pink-accent: #ff8fc7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--ink);
+  background: linear-gradient(180deg, var(--bg-sky-top) 0%, var(--bg-sky-bottom) 55%, #cdeafb 100%);
+  font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  min-height: 100vh;
+}
+
+.font-display {
+  font-family: "Poppins", "Noto Sans KR", sans-serif;
+}
+
+/* pixel-style window chrome, hard offset shadow, no border radius */
+.pixel-window {
+  background: #ffffff;
+  border: 2px solid var(--window-border);
+  box-shadow: 5px 5px 0 rgba(28, 36, 48, 0.85);
+  image-rendering: pixelated;
+}
+
+.pixel-window-titlebar {
+  border-bottom: 2px solid var(--window-border);
+  background: #fbfbfe;
+}
+
+.pixel-shadow-sm {
+  box-shadow: 3px 3px 0 rgba(28, 36, 48, 0.85);
+}
+
+.pixel-shadow-lg {
+  box-shadow: 8px 8px 0 rgba(28, 36, 48, 0.85);
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-anim {
+  animation: float-y 4s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.4; transform: scale(0.9) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.15) rotate(15deg); }
+}
+
+.twinkle {
+  animation: twinkle 2.4s ease-in-out infinite;
+}
